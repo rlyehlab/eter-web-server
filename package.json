@@ -1,0 +1,26 @@
+{
+  "name": "eter-web-server",
+  "version": "0.0.1",
+  "description": "Server with GraphQL as a layer for querying to PostgreSQL by using PostGraphile.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlyehlab/eter-web-server.git"
+  },
+  "author": {
+    "name": "Leonardo Maddio",
+    "email": "leonardo.maddio@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlyehlab/eter-web-server/issues"
+  },
+  "homepage": "https://github.com/rlyehlab/eter-web-server#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "postgraphile": "^4.0.0-beta.6"
+  }
+}
