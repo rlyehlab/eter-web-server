@@ -4,14 +4,15 @@
   "description": "Server with GraphQL as a layer for querying to PostgreSQL by using PostGraphile.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rlyehlab/eter-web-server.git"
   },
   "author": {
-    "name": "Leonardo Maddio",
+    "name": "Eter",
     "email": "leonardo.maddio@gmail.com"
   },
   "license": "ISC",
