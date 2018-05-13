@@ -18,6 +18,7 @@ Install dependencies
     npm install
 ```
 Remember passing variables for connecting to DB
+
 VARIABLE | OPTIONAL | DEFAULT
 ------------ | ------------- | -------------
 PORT | TRUE | 3000
@@ -25,7 +26,8 @@ DATABASE_URL | TRUE | 3000
 DB_NAME | FALSE | 
 USER | TRUE | ''
 PASS | TRUE | ''
-SCHEMA | FALSE | 
+SCHEMA | FALSE | ''
+
 
 ```
     npm start
