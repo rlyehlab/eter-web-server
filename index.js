@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const { postgraphile } = require("postgraphile");
 
 const app = express();
@@ -19,21 +20,25 @@ if(Object.entries(env).some(([k,v])=>{
   throw new Error("One of the enviroment values wasn't provided");
 }
 
-const USER_PASS = PASS ? [USER, PASS].join(":") : USER;
-const DB_URL = USER_PASS ? [USER_PASS,DATABASE_URL].join("@") : DATABASE_URL;
-const URL = "postgres://"+DB_URL+"/"+DB_NAME;
+const USER_PASS = env.PASS ? [env.USER, env.PASS].join(":") : env.USER;
+const DB_URL = USER_PASS ? [USER_PASS, env.DATABASE_URL].join("@") : env.DATABASE_URL;
+const URL = "postgres://"+DB_URL+"/"+env.DB_NAME;
+
+app.use(cors());
 
 app.use(
-  postgraphile(URL),
-  SCHEMA,
-  {
-    watchPg: true,
-    graphiql: true,
-    dynamicJson: true,
-    disableDefaultMutations: true,
-    showErrorStack: true
-  }
+  postgraphile(
+    URL,
+    env.SCHEMA,
+    {
+      watchPg: true,
+      graphiql: true,
+      dynamicJson: true,
+      disableDefaultMutations: true,
+      showErrorStack: true
+    }
+  )
 );
 
-app.listen(PORT);
-console.log("PostGraphile listening in port: " + PORT);
+app.listen(env.PORT);
+console.log("PostGraphile listening in port: " + env.PORT);
