@@ -9,7 +9,7 @@ const env = {
   "DB_NAME": process.env.DB_NAME,
   "USER": process.env.USER || '',
   "PASS": process.env.PASS || '',
-  "SCHEMA": process.env.SCHEMA
+  "SCHEMA": process.env.SCHEMA || 'public'
 };
 
 if(Object.entries(env).some(([k,v])=>{
@@ -24,6 +24,8 @@ const USER_PASS = env.PASS ? [env.USER, env.PASS].join(":") : env.USER;
 const DB_URL = USER_PASS ? [USER_PASS, env.DATABASE_URL].join("@") : env.DATABASE_URL;
 const URL = "postgres://"+DB_URL+"/"+env.DB_NAME;
 
+console.log("Url of postgress:", URL);
+
 app.use(cors());
 
 app.use(
@@ -31,7 +33,7 @@ app.use(
     URL,
     env.SCHEMA,
     {
-      watchPg: true,
+      watchPg: false,
       graphiql: true,
       dynamicJson: true,
       disableDefaultMutations: true,
